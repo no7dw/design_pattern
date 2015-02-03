@@ -48,3 +48,9 @@ console.log("ClassCount" + basketModule.getItemClassCount());
 console.log("Count" + basketModule.getItemCount());
 
 console.log( "$ " + basketModule.getTotal());
+
+//undefined
+console.log(basketModule.basket);
+
+//<anonymous>
+// console.log(basket);
