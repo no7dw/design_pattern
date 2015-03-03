@@ -1,4 +1,5 @@
 function ObserverList(){
+	console.log('new ObserverList() called');
 	this.ObserverList = [];
 }
 ObserverList.prototype.Add = function(obj) {
@@ -19,6 +20,7 @@ function extend(obj, extension){
 };
 
 function Subject(){
+	console.log('new Subject() called');
 	this.observers = new ObserverList();
 }
 Subject.prototype.AddObserver = function(observer) {
