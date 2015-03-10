@@ -1,5 +1,5 @@
 var BaseCalculator = function() {
-	console.log('new BaseCalculator() called');
+    console.log('new BaseCalculator() called');
     this.decimalDigits = 2;
 };
 
@@ -15,6 +15,7 @@ BaseCalculator.prototype = {
 var Calculator = function () {
     //为每个实例都声明一个税收数字
     this.tax = 5;
+    console.log('Calculator constructor 1');
 };
         
 Calculator.prototype = new BaseCalculator();
@@ -28,8 +29,9 @@ console.log(calc.decimalDigits);
 console.log("\n--------");
 var Calculator = function () {
     this.tax= 5;
+    console.log('Calculator constructor 2');
 };
-
+//this won't call BaseCalculator()
 Calculator.prototype = BaseCalculator.prototype;
 
 var calc = new Calculator();
