@@ -2,8 +2,10 @@ function Car(model, year, miles){
 	this.model = model;
 	this.year = year;
 	this.miles = miles;
+	// this.toString = function(){console.log("aa")};
+
 }
-Car.prototype.toString = function(first_argument) {
+Car.prototype.toString = function() {
 	return this.model + " has done " + this.year + this.miles + " miles" ;	
 };
 
