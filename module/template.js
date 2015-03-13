@@ -17,3 +17,5 @@ var myNamespace = (function(){
 console.log(myNamespace.myPublicVar);
 myNamespace.myPublicFunction("ab");
 myNamespace.myPublicFunction("abcd");
+//when unneed
+myNamespace  = null;
