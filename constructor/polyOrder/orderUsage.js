@@ -3,8 +3,8 @@
 const dOrder = require('./demandDepositOrder')
 const tOrder = require('./timeDepositOrder')
 
-//method1
-var handleFactoryOrder = function(order){
+//method1 从参数上判断
+let handleFactoryOrder = function(order){
   let _order;
   if(order.period){
     _order = new tOrder(order)
@@ -17,9 +17,13 @@ var handleFactoryOrder = function(order){
 handleFactoryOrder( {number:10, rateYear : 0.071})
 handleFactoryOrder( {number:10, rateYear : 0.071, period:90})
 
-//method2
-var handleFactoryOrder2 = function(order){
+//method2 从外部直接区分具体类别
+let handleFactoryOrder2 = function(order){
   order.Confirm()
 }
-handleFactoryOrder2( new dOrder({number:10, rateYear : 0.071}))
-handleFactoryOrder2( new tOrder({number:10, rateYear : 0.071, period:90}))
+
+let req = {}
+req.body = {number:10, rateYear : 0.071}
+req.body1 = {number:10, rateYear : 0.071, period:90}
+handleFactoryOrder2( new dOrder(req.body))
+handleFactoryOrder2( new tOrder(req.body1))
