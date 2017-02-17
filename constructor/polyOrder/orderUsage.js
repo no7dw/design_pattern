@@ -3,8 +3,15 @@
 const dOrder = require('./demandDepositOrder')
 const tOrder = require('./timeDepositOrder')
 
-var save = function(order){
-  order.Confirm()
+var handleOrder = function(order){
+  let _order;
+  if(order.period){
+    _order = new tOrder(order)
+  }
+  else {
+    _order = new dOrder(order)
+  }
+  _order.Confirm()
 }
-save( new dOrder({number:10, rateYear : 0.071}))
-save( new tOrder({number:10, rateYear : 0.071, period:90}))
+handleOrder( {number:10, rateYear : 0.071})
+handleOrder( {number:10, rateYear : 0.071, period:90})
