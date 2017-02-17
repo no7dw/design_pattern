@@ -3,7 +3,8 @@
 const dOrder = require('./demandDepositOrder')
 const tOrder = require('./timeDepositOrder')
 
-var handleOrder = function(order){
+//method1
+var handleFactoryOrder = function(order){
   let _order;
   if(order.period){
     _order = new tOrder(order)
@@ -13,5 +14,12 @@ var handleOrder = function(order){
   }
   _order.Confirm()
 }
-handleOrder( {number:10, rateYear : 0.071})
-handleOrder( {number:10, rateYear : 0.071, period:90})
+handleFactoryOrder( {number:10, rateYear : 0.071})
+handleFactoryOrder( {number:10, rateYear : 0.071, period:90})
+
+//method2
+var handleFactoryOrder2 = function(order){
+  order.Confirm()
+}
+handleFactoryOrder2( new dOrder({number:10, rateYear : 0.071}))
+handleFactoryOrder2( new tOrder({number:10, rateYear : 0.071, period:90}))
