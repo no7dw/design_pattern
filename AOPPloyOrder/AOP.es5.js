@@ -10,18 +10,18 @@ Function.prototype.before = function(beforefn) {
 Function.prototype.after = function(afterfn) {
   var self = this
   return function(){
-    afterfn.apply(this, arguments)
-    return self.apply(this, arguments)
+    self.apply(this, arguments)
+    return afterfn.apply(this, arguments)
   }
 }
 
 var func = function(){
   console.log('normal')
 }
-func = func.before(function(arg){
-  console.log('before func', arg)
-}).after(function(arg){
-  console.log('after func',arg)
-})
+
+var bfunc = function(arg){  console.log('before func', arg) }
+var afunc = function(arg){  console.log('after func', arg) }
+
+func = func.before(bfunc).after(afunc)
 
 func({'name':'wade', 'dept': 'dev'})
