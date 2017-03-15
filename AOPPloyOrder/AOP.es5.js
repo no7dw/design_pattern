@@ -25,3 +25,5 @@ var afunc = function(arg){  console.log('after func', arg) }
 func = func.before(bfunc).after(afunc)
 
 func({'name':'wade', 'dept': 'dev'})
+
+//todo encapsulate it, as meld node_modules
