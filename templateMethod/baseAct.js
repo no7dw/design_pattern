@@ -10,14 +10,20 @@ class AbstractActClass {
   }
 
   TemplateMethod (userId) {
-    this.checkUserExists(userId)
-    this.checkActOn()
-    this.checkUserHasPurchase(userId)
-    this.checkUserHasWithdraw(userId)
+    let isMatch = this.checkUserExists(userId) && this.checkActOn() && this.checkUserHasPurchase(userId) && this.checkUserHasWithdraw(userId)
+    if(!isMatch) {
+      console.log(userId , 'not match cond', this.cond)
+    }
+    this.reward(userId)
+  }
+
+  reward (userId) {
+    throw new Error('must implement by ConcreteActClass')
   }
 
   checkUserExists (userId) {
     console.log('user exists ' + userId)
+    return true
   }
 
   checkActOn () {

@@ -10,6 +10,11 @@ class ConcreteActClass extends AbstractActClass {
   //this will override the father baseAct checkUserExists method
   checkUserExists (userId) {
     console.log('ConcreteClass user exists ' + userId)
+    return true
+  }
+
+  reward (userId) {
+    console.log('reward user:', userId)
   }
 }
 
