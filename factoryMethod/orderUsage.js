@@ -21,6 +21,7 @@ let req2 = {}
 req2.body = {number:10, rateYear : 0.071, period:90}
 
 handleFactoryOrder( req.body)
+
 handleFactoryOrder( req2.body)
 
 

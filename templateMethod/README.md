@@ -31,4 +31,7 @@
   act.TemplateMethod(userId) //关键
 
 ```    
+
+### TODO
+  加多一个xxxAct 活动类，使用工厂方法
   
