@@ -4,9 +4,9 @@ const dOrder = require('./demandDepositOrder')
 const tOrder = require('./timeDepositOrder')
 
 //method1 从参数上判断, 类似处理web req
-let handleFactoryOrder = function(reqOrder){
+let handleOrder = function (reqOrder) {
   let _order;
-  if(reqOrder.period){
+  if (reqOrder.period) {
     _order = new tOrder(reqOrder)
   }
   else {
@@ -16,19 +16,17 @@ let handleFactoryOrder = function(reqOrder){
 }
 
 let req = {}
-req.body = {number:10, rateYear : 0.071}
+req.body = {number: 10, rateYear: 0.071}
 let req2 = {}
-req2.body = {number:10, rateYear : 0.071, period:90}
+req2.body = {number: 10, rateYear: 0.071, period: 90}
 
-handleFactoryOrder( req.body)
-
-handleFactoryOrder( req2.body)
-
+handleOrder(req.body)
+handleOrder(req2.body)
 
 //method2 从外部直接区分具体类别
-let handleFactoryOrder2 = function(order){
+let handleOrder2 = function (order) {
   order.Confirm()
 }
 
-handleFactoryOrder2( new dOrder(req.body))
-handleFactoryOrder2( new tOrder(req2.body))
+handleOrder2(new dOrder(req.body))
+handleOrder2(new tOrder(req2.body))

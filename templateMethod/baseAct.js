@@ -16,7 +16,7 @@ class AbstractActClass {
     }
     this.reward(userId)
   }
-
+  // 奖励必须有继承者去实现
   reward (userId) {
     throw new Error('must implement by ConcreteActClass')
   }
