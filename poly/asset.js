@@ -5,7 +5,7 @@ class Asset{
   constructor(number, price){    
     this.number = number
     this.price = price
-    console.log(this.number, this.price)
+    // console.log(this.number, this.price)
   }
 
   getCurrentValue(){
