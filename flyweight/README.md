@@ -28,5 +28,5 @@ actually: 这个模式我认为是当今比较少用/没什么用的
 
 如上面的order system , 我完全可以简化成：
 
- [simple flyweight](https://github.com/no7dw/design_pattern/flyweight/p.js)
+ [simple flyweight](https://github.com/no7dw/design_pattern/blob/master/flyweight/p.js)
 
