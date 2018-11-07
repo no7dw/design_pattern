@@ -1,8 +1,10 @@
+
+//TODO: pass init value in DataRisk/OrderRisk/MarketRisk in constuctor
 class BaseTradeRisk {
 	constructor() {
 		let nextSuccessor = null
 	}
-	process(){
+	process(){ //注意这个封装,判断处理结果，并交棒给下一个
 	  if(this.doProcess()){
 		if(this.nextSuccessor){
 			this.nextSuccessor.process()
@@ -41,9 +43,16 @@ function ProcessRiskManager(){
 	let ork = new OrderRisk()
 	drk.setSuccessor(mrk)
 	mrk.setSuccessor(ork)
-	drk.process()
+	drk.process() //只需要triger once
 	
 }
 ProcessRiskManager()
-//TODO: pass init value in DataRisk/OrderRisk/MarketRisk in constuctor
 
+//Comment: 你也可以不用这个模式
+// drk.doProcess()
+// mrk.doProcess()
+// ork.doProcess()
+// 但如果需要知道上一个的true false 决定是否继续就稍微麻烦
+// if(drk.doProcess()) {
+//	if(mrk.doProcess()) {...}
+// }
